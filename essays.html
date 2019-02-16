@@ -1,0 +1,20 @@
+---
+layout: default
+title: Essays
+---
+<h1>Essays</h1>
+
+<p>
+  This page contains a series of essays that I have written primarily to refine my own thoughts and force myself to evaluate them more critically. All of these should be considered as drafts, and are subject to change as my own thoughts do so. 
+</p>
+<ul>
+  {% for post in site.posts %}
+    {% if post.category == 'essay' %}
+        <li>
+            <h3><a href="{{ post.url }}">{{ post.title }}</a> </h3>
+            <p>{{ post.excerpt }}</p>
+        </li>
+    {% endif %}
+    
+  {% endfor %}
+</ul>

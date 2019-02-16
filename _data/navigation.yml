@@ -1,0 +1,10 @@
+- name: Home
+  link: /
+- name: About Me
+  link: /about.html
+- name: Book Reviews
+  link: /book_reviews.html
+- name: Expository Papers
+  link: /expository_papers.html
+- name: Essays
+  link: /essays.html
