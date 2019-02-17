@@ -2,6 +2,7 @@
 
 body{
     margin: 75px 100px;
+    font-family: "Times New Roman", Times, serif;
 }
 
 nav{
@@ -49,7 +50,36 @@ h1{
 
 blockquote{
     background-color: #bebebe;
-    padding: 10px;
+    padding: 7px;
     margin-left: 0px;
     
 }
+
+figure {
+    display: table;
+}
+img, figcaption {
+    display: flex;
+    vertical-align: bottom;
+    font-size: smaller;
+    font-style: italic;
+    text-align: center;
+}
+figcaption {
+    padding-left: 4px;
+    display:table-caption;
+    caption-side:bottom
+}
+
+.three_adjacent_pics{
+    float: left;
+    width: 10px;
+}
+
+.pic_trio_layout::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+

@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>The Assignment Problem</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$']]}
+      });
+    </script>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+    </script>
+  </head>
+  <body>
+    <nav>
+    
+
+
+    <button onclick="location.href='/'" type="button" >
+        Home
+    </button>
+    
+
+
+    <button onclick="location.href='/about.html'" type="button" >
+        About Me
+    </button>
+    
+
+
+    <button onclick="location.href='/book_reviews.html'" type="button" >
+        Book Reviews
+    </button>
+    
+
+
+    <button onclick="location.href='/essays.html'" type="button" >
+        Essays
+    </button>
+    
+
+
+    <button onclick="location.href='/codesamples.html'" type="button" >
+        Code Samples
+    </button>
+    
+</nav>
+
+    <h1>The Assignment Problem</h1>
+<h2>A Review of  by </h2>
+
+<p>Consider placing $n$ individuals in $n$ jobs given ratings for each. This gives a matrix $(a_{ij})$ of the rating of individual $i$ at job $j$. Find an efficient method of assigning one person to each job to maximize the total rating. Scanning all $n!$ possibilities is a bad option because even placing only 50 individuals would require $3 \cdot 10^{64}$ cases to check. The algorithm described here runs in $O(n^3)$ which corresponds to $\approx 10^5$ for 50 individuals. Quite an improvement! I first studied this problem as an extremely simple case of a problem in geometric analysis called Monge-Kantorovich Mass Transfer. <a href="https://pdfs.semanticscholar.org/848c/717ba51e48afef714dfef4bd6ab1cc050dab.pdf">A paper</a> by the great topologist James Munkres outlines a solution, from which I adapted this <a href="/assets/munkres_assignment_algo.py">Python implementation</a>.</p>
+
+
+    This website is powered by Jekyll. 
+  </body>
+</html>
