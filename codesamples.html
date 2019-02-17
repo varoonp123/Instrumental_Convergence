@@ -21,17 +21,13 @@ title: Code Samples
   <p>
     The following are projects that usually took a weekend or so. The code is fairly cringey, but one has to start somewhere. 
   </p>
-<ul>
 {% for post in site.posts %}
     {% if post.category == 'hackathon' %}
-        <li>
-            <h3>{{ post.title }}</h3>
-            <p>{{ post.content }}</p>
-        </li>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.content }}</p>
     {% endif %}
     
 {% endfor %}
 
-</ul>
 
 

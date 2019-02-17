@@ -1,8 +1,7 @@
-
-
 body{
-    margin: 75px 100px;
+    margin: 75px 75px;
     font-family: "Times New Roman", Times, serif;
+    font-size: 1.05em;
 }
 
 nav{
@@ -11,6 +10,7 @@ nav{
     top: 0;
     left: 0;
     width: 100%;
+    font-size: 1.05em;
 }
 
 button {
@@ -38,6 +38,7 @@ button:hover {
 
 button.current{
     background:  rgb(0, 84, 218)
+
 }
 
 nav{
@@ -59,27 +60,38 @@ figure {
     display: table;
 }
 img, figcaption {
-    display: flex;
-    vertical-align: bottom;
+    display: table;
     font-size: smaller;
     font-style: italic;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 figcaption {
-    padding-left: 4px;
+    padding: 5px;
     display:table-caption;
-    caption-side:bottom
+    caption-side:bottom;
 }
 
 .three_adjacent_pics{
     float: left;
-    width: 10px;
+
+    
 }
 
-.pic_trio_layout::after {
+.mhacks_pics::after{
+    margin: auto;
     content: "";
     clear: both;
     display: table;
+}
+.index_trio_layout::after {
+    content: "";
+    clear: both;
+    margin-left: 0px;
+    margin-right: 0px; 
+    display: flex; 
+    justify-content: space-between;
   }
 
 

@@ -1,10 +1,6 @@
 - name: Home
   link: /
-- name: About Me
-  link: /about.html
+- name: Code Samples
+  link: /codesamples.html  
 - name: Book Reviews
   link: /book_reviews.html
-- name: Essays
-  link: /essays.html
-- name: Code Samples
-  link: /codesamples.html
