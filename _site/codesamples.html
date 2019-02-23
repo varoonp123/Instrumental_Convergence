@@ -43,9 +43,6 @@
 
 
     
-
-
-    
         <h3>The Transportation Problem</h3>
         <p><p>Consider a market in which there are $m$ sellers of a good/service and $n$ buyers, each of whom are selling/buying a specific amount. Assume further that there is a cost matrix $(c_{ij})$ that represents the unit cost of seller $i$ doing business with buyer $j$. Give an efficient method of clearing the market at a minimal total cost. This is a generalization of the assignment problem and has a fairly similar solution.</p>
 
@@ -56,8 +53,11 @@ Here are some examples:</p>
 
 
     
-        <h3>The Assignment Problem</h3>
-        <p><p>Consider placing $n$ individuals in $n$ jobs given ratings for each. This gives a matrix $(a_{ij})$ of the rating of individual $i$ at job $j$. Find an efficient method of assigning one person to each job to maximize the total rating. Scanning all $n!$ possibilities is a bad option because even placing only 50 individuals would require $3 \cdot 10^{64}$ cases to check. The algorithm described here runs in $O(n^3)$ which corresponds to $\approx 10^5$ for 50 individuals. Quite an improvement! I first studied this problem as an extremely simple case of a problem in geometric analysis called Monge-Kantorovich Mass Transfer. <a href="https://pdfs.semanticscholar.org/848c/717ba51e48afef714dfef4bd6ab1cc050dab.pdf">A paper</a> by the great topologist James Munkres outlines a solution, from which I adapted this <a href="/assets/munkres_assignment_algo.py">Python implementation</a>.</p>
+
+
+    
+        <h3>The (Linear Sum) Assignment Problem</h3>
+        <p><p>Consider the problem of placing $n$ individuals into $n$ jobs given a matrix $(a_{ij})$ of the rating of individual $i$ at job $j$. The problem is to find an efficient construction of the optimal assignment. In other words, for any square matrix, pick a sum-maximizing(or minimizing) set of elements that do no share a row or column. Scanning all $n!$ possibilities is a bad option because even placing only 50 individuals would require $3 \cdot 10^{64}$ cases to check. The algorithm described here, sometimes called the <em>Hungarian Algorithm</em> or the <em>Kuhn-Munkres</em> Algorithm, runs in $O(n^3)$ which corresponds to $\approx 10^5$ operations for assigning 50 individuals. Quite an improvement! I first studied this problem as an extremely simple case of a problem in geometric analysis called Monge-Kantorovich Mass Transfer. <a href="https://pdfs.semanticscholar.org/848c/717ba51e48afef714dfef4bd6ab1cc050dab.pdf">A paper</a> by the great topologist James Munkres outlines a solution, from which I adapted this <a href="/assets/munkres_assignment_algo.py">Python implementation</a>.</p>
 </p>
     
 
@@ -82,6 +82,9 @@ Here are some examples:</p>
   </p>
 
     
+    
+
+    
         <h3>Twich Plays Battle Bots</h3>
         <p><p>Inspired by the surprisingly interesting social experiment known as <a href="https://en.wikipedia.org/wiki/Twitch_Plays_Pok%C3%A9mon">Twitch Plays Pokemon</a>, we made Twitch chat-controlled cars that could play two games. Throw in some computer vision, Arduino, etc. and you get this monstrosity. <a href="https://github.com/cdsupina/MHacks2016">Github repo</a>.</p>
 
@@ -97,9 +100,6 @@ Here are some examples:</p>
     </figure>
 </div>
 </p>
-    
-    
-
     
     
 

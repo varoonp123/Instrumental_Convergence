@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>The Assignment Problem</title>
+    <title>The (Linear Sum) Assignment Problem</title>
     <link rel="stylesheet" href="/assets/css/styles.css">
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
@@ -35,10 +35,10 @@
     </button>
     
 </nav>
-    <h1>The Assignment Problem</h1>
+    <h1>The (Linear Sum) Assignment Problem</h1>
 <h2>A Review of  by </h2>
 
-<p>Consider placing $n$ individuals in $n$ jobs given ratings for each. This gives a matrix $(a_{ij})$ of the rating of individual $i$ at job $j$. Find an efficient method of assigning one person to each job to maximize the total rating. Scanning all $n!$ possibilities is a bad option because even placing only 50 individuals would require $3 \cdot 10^{64}$ cases to check. The algorithm described here runs in $O(n^3)$ which corresponds to $\approx 10^5$ for 50 individuals. Quite an improvement! I first studied this problem as an extremely simple case of a problem in geometric analysis called Monge-Kantorovich Mass Transfer. <a href="https://pdfs.semanticscholar.org/848c/717ba51e48afef714dfef4bd6ab1cc050dab.pdf">A paper</a> by the great topologist James Munkres outlines a solution, from which I adapted this <a href="/assets/munkres_assignment_algo.py">Python implementation</a>.</p>
+<p>Consider the problem of placing $n$ individuals into $n$ jobs given a matrix $(a_{ij})$ of the rating of individual $i$ at job $j$. The problem is to find an efficient construction of the optimal assignment. In other words, for any square matrix, pick a sum-maximizing(or minimizing) set of elements that do no share a row or column. Scanning all $n!$ possibilities is a bad option because even placing only 50 individuals would require $3 \cdot 10^{64}$ cases to check. The algorithm described here, sometimes called the <em>Hungarian Algorithm</em> or the <em>Kuhn-Munkres</em> Algorithm, runs in $O(n^3)$ which corresponds to $\approx 10^5$ operations for assigning 50 individuals. Quite an improvement! I first studied this problem as an extremely simple case of a problem in geometric analysis called Monge-Kantorovich Mass Transfer. <a href="https://pdfs.semanticscholar.org/848c/717ba51e48afef714dfef4bd6ab1cc050dab.pdf">A paper</a> by the great topologist James Munkres outlines a solution, from which I adapted this <a href="/assets/munkres_assignment_algo.py">Python implementation</a>.</p>
 
   </body>
 </html>

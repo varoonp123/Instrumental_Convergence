@@ -87,10 +87,10 @@ def star_ind_zeros_and_cover(m, star,prime, cov_row, cov_col):
             if m[i][j] == 0 and (sum([int(star[i][k]) for k in range(0, len(star[0]))]) + sum([int(star[k][j]) for k in range(0, len(star))]))==0:
                 star[i][j] = True
                 cov_col[j] = True
-    print("Starred and covered independent zeros. There are {} covered rows, {} covered cols, {} primes, {} stars, "
-          "and the sum is {}".format(sum(cov_row), sum(cov_col), sum(sum(prime, [])), sum(sum(star, [])), sum(sum(m, []))))
-    print_mat(m, star, prime, cov_row, cov_col)
-    print()
+    #print("Starred and covered independent zeros. There are {} covered rows, {} covered cols, {} primes, {} stars, "
+     #     "and the sum is {}".format(sum(cov_row), sum(cov_col), sum(sum(prime, [])), sum(sum(star, [])), sum(sum(m, []))))
+    #print_mat(m, star, prime, cov_row, cov_col)
+    #print()
     return [m, star, prime, cov_row, cov_col]
 
 #Check of matrix has a noncovered zero.
@@ -114,7 +114,7 @@ def step_1(m,star,prime,cov_row, cov_col):
                     prime[i][j] = True
                     if prime[i][j] and star[i][j]:
                         print("ERROR STARRED PRIMED 0")
-                        print_mat(m, star, prime, cov_row, cov_col)
+                        #print_mat(m, star, prime, cov_row, cov_col)
                     #If has starred zero in same row(starred zeros are ind by construction), redo coverings.
                     row_has_starred_zero = False
                     for k in range(0,len(m[0])):
@@ -122,10 +122,10 @@ def step_1(m,star,prime,cov_row, cov_col):
                             row_has_starred_zero = True
                             cov_row[i] = True
                             cov_col[k] = False
-                            print("End of Step 1. There are {} covered rows, {} covered cols, {} primes, {} stars, "
-                                  "and the sum is {}".format(sum(cov_row), sum(cov_col), sum(sum(prime, [])), sum(sum(star, [])),sum(sum(m, []))))
-                            print_mat(m, star, prime, cov_row, cov_col)
-                            print()
+                            #print("End of Step 1. There are {} covered rows, {} covered cols, {} primes, {} stars, "
+                                  #"and the sum is {}".format(sum(cov_row), sum(cov_col), sum(sum(prime, [])), sum(sum(star, [])),sum(sum(m, []))))
+
+                            #print()
                     if not row_has_starred_zero:
                         [m, star, prime, cov_row, cov_col] = step_2(m, star, prime, cov_row, cov_col)
                         if sum(cov_col) == len(cov_col):
@@ -151,7 +151,7 @@ def step_2(m, star, prime, cov_row, cov_col):
     continue_bool = True
     while continue_bool:
         prev_z = Z[len(Z) - 1]
-        print(len(Z))
+        #print(len(Z))
         has_star_zero = False
         #if just added a prime 0, add a starred 0 in the same col if it exists
         for x in range(0,len(m)):
@@ -183,9 +183,9 @@ def step_2(m, star, prime, cov_row, cov_col):
             if m[i][j] == 0 and star[i][j]:
                 col_has_star_zero = True
         cov_col[j] = col_has_star_zero
-    print("End of Step 2. There are {} covered rows, {} covered cols, {} primes, {} stars, and the sum is {}".format(sum(cov_row), sum(cov_col), sum(sum(prime, [])), sum(sum(star, [])), sum(sum(m, []))))
-    print_mat(m, star, prime, cov_row, cov_col)
-    print()
+    ##print("End of Step 2. There are {} covered rows, {} covered cols, {} primes, {} stars, and the sum is {}".format(sum(cov_row), sum(cov_col), sum(sum(prime, [])), sum(sum(star, [])), sum(sum(m, []))))
+    #print_mat(m, star, prime, cov_row, cov_col)
+    #print()
     return [m, star, prime, cov_row, cov_col]
 
 def step_3(m,star,prime,cov_row,cov_col):
@@ -208,17 +208,17 @@ def step_3(m,star,prime,cov_row,cov_col):
                 m[a][b] = m[a][b]+h
             if not cov_col[b]:
                 m[a][b] = m[a][b]-h
-    print("End of Step 3. There are {} covered rows, {} covered cols, {} primes, {} stars, and the sum is {}".format(sum(cov_row), sum(cov_col), sum(sum(prime,[])), sum(sum(star,[])), sum(sum(m,[])) ))
-    print_mat(m, star, prime, cov_row, cov_col)
-    print()
+    #print("End of Step 3. There are {} covered rows, {} covered cols, {} primes, {} stars, and the sum is {}".format(sum(cov_row), sum(cov_col), sum(sum(prime,[])), sum(sum(star,[])), sum(sum(m,[])) ))
+    #print_mat(m, star, prime, cov_row, cov_col)
+    #print()
     return step_1(m,star,prime,cov_row,cov_col)
 
 #INITIALIZE cost, starred, primed,matrices and boolean vecs for covering.
 num_steps_1 = 0
 num_steps_2 = 0
 num_steps_3 = 0
-num_rows = 10
-num_cols = 10
+num_rows = 100
+num_cols = 100
 
 ORIGINAL_MATRIX = [[r.randint(0,11) for i in range(0,num_cols)] for j in range(0,num_rows)]
 starred = [[False for i in range(0,num_cols)]for j in range(0,num_rows)]
@@ -228,12 +228,12 @@ covered_rows = [False for j in range(0,num_rows)]
 x = copy.deepcopy(ORIGINAL_MATRIX)
 
 print("Original Matrix")
-print_mat(ORIGINAL_MATRIX,starred, primed,covered_rows,covered_cols)
+#print(ORIGINAL_MATRIX,starred, primed,covered_rows,covered_cols)
 print()
 
 #Subtract min from each row and col. Now every row and col has atleast one zero.
 x = subtr_min_from_ea_row_col(x)
-print_mat(x,starred, primed,covered_rows,covered_cols)
+#print(x,starred, primed,covered_rows,covered_cols)
 print()
 
 #star ind zeros and cover their cols. The starred zeroes are ind
@@ -241,7 +241,7 @@ print()
 
 [x,starred, primed,covered_rows,covered_cols] = step_1(x, starred, primed, covered_rows, covered_cols)
 print("FINISHED!")
-print_mat(x,starred, primed,covered_rows,covered_cols)
+#print(x,starred, primed,covered_rows,covered_cols)
 
 print()
 sum = 0

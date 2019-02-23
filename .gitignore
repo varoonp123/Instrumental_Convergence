@@ -3,3 +3,4 @@
 *.xcf
 *.pdf
 _site/
+*.sh
