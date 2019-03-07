@@ -88,7 +88,7 @@ def step_3(m,star,prime,cov_row,cov_col):
 #INPUT: m - a square np array. 
 #OUTPUT: A square boolean array that has a 1 at (i,j) if and only if person i is assigned to job j
 def assignment(m):
-    #These matrices keep track of whether each element is starred or primed and whether the row/col of the element is covered. They start out as false. 
+    #Using the terms from Munkres' paper, these matrices keep track of whether each element is starred or primed and whether the row/col of the element is covered. They start out as false. 
     n = m.shape[0]
     star =np.zeros((n,n), dtype=bool)
     prime = np.zeros((n,n), dtype=bool)

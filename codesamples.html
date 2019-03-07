@@ -8,8 +8,7 @@ title: Code Samples
   This page contains relatively small chunks of code that solves some cute problems. They are fun problems to try with or without hints. 
 </p>
 
-{% assign sorted = (site.collection_name | sort: 'date')  %}
-{% for post in sorted %}
+{% for post in (site.posts | sort: 'date') %}
     {% if post.category == 'code' %}
         <h3>{{ post.title }}</h3>
         <p>{{ post.content }}</p>

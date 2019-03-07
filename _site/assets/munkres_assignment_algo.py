@@ -1,8 +1,8 @@
 # @Author: Varoon Pazhyanur <varoon>
-# @Date:   05-11-2017
+# @Date:   5 November 2017
 # @Filename: munkres_assignment_algo.py
 # @Last modified by:   varoon
-# @Last modified time: Jan-11-2018
+# @Last modified time: 23 February 2019
 import random as r
 import numpy as np
 
@@ -11,9 +11,10 @@ Algorithm in O(n^3) to solve the assignment problem as described in
 "Algorithms for the Assignment and Transportation Problems" by James Munkres in the Journal of the Society of Industrial and Applied Math March 1957.
 
 Problem: Given n people, n jobs and a rating matrix (r_{i,j}) describing a rating of person i in job j, assign each person to exactly 1 job to maximize the total rating. ie Find n independent (do not share a row or column) elements in the matrix with maximal sum. This is equivalent to minimizing that sum with a nonnegative matrix. This script runs through the algorithm with a random nxn matrix and gets the min sum. It also compares the output to a large number of options generated in the naive method.
-'''
 
-#get a set of independent starred zeroes and cover their cols. This is always possible because when this runs, each row and each col must have atleast one 0. 
+'''
+# The inputs and outputs for these functions are all essentially the 'state' of the marked matrix. 
+# Get a set of independent starred zeroes and cover their cols. This is always possible because when this runs, each row and each col must have atleast one 0. 
 def star_ind_zeros_and_cover(m, star,prime, cov_row, cov_col):
     #Note: This can probably be done more efficiently (but probably not with numpy/vector operations). TODO: This is basically the nonattacking rook problem from chess. 
     for i in range(0, m.shape[0]):
@@ -28,7 +29,6 @@ def step_1(m,star,prime,cov_row, cov_col):
     if np.sum(star)==len(star):
         return [m, star, prime, cov_row, cov_col]
     while np.any((m == 0) & np.invert(np.array(cov_row, dtype=bool)) & np.invert(np.array(cov_col, dtype=bool))):#while has noncovered zero 
-        #Prime an uncovered zero. 
         indices = np.where((m==0) & np.invert(np.array(cov_row,dtype=bool)) &np.invert(np.array(cov_col,dtype=bool)))
         prime_i = indices[0][0]
         prime_j = indices[1][0]
@@ -41,11 +41,10 @@ def step_1(m,star,prime,cov_row, cov_col):
             cov_row[prime_i,:] = True
             cov_col[:, np.where(star[prime_i,:] & (m[prime_i,:] == 0))[-1]] = False
                    
-    # Proceed to step 3 when ALL zeroes are covered.
     return step_3(m,star, prime, cov_row, cov_col)
 
 def step_2(m, star, prime, cov_row, cov_col):
-    #construct a sequence of alternating starred and primed zeroes. Start with Z_0 = uncovered prime 0. This first line gets thr first such zero. Each col of Z corresponds to an index pair. 
+    #construct a sequence of alternating starred and primed zeroes. Start with Z_0 = uncovered prime 0. Each col of Z corresponds to an index pair. 
     Z = np.array(np.where((m == 0) & np.invert(np.array(cov_col,dtype=bool)) & np.invert(cov_row) & prime))
 
     continue_bool = True
@@ -66,6 +65,7 @@ def step_2(m, star, prime, cov_row, cov_col):
         star[Z[0,j],Z[1,j]] = j%2==0
 
     #Finally Erase all primes, uncover each row, and cover every column with a 0*.
+    n = m.shape[0]
     prime = np.zeros((n,n), dtype=bool)
     cov_row =  np.zeros((n,n), dtype=bool)
     cov_col[:,np.where(np.sum((m ==0) & star, axis=0)==1)[0]] = True
@@ -88,7 +88,8 @@ def step_3(m,star,prime,cov_row,cov_col):
 #INPUT: m - a square np array. 
 #OUTPUT: A square boolean array that has a 1 at (i,j) if and only if person i is assigned to job j
 def assignment(m):
-    #These matrices keep track of whether each element is starred or primed and whether the row/col of the element is covered. They start out as false. 
+    #Using the terms from Munkres' paper, these matrices keep track of whether each element is starred or primed and whether the row/col of the element is covered. They start out as false. 
+    n = m.shape[0]
     star =np.zeros((n,n), dtype=bool)
     prime = np.zeros((n,n), dtype=bool)
     cov_col = np.zeros((n,n), dtype=bool)
@@ -103,6 +104,6 @@ def assignment(m):
     [x,star, prime,cov_row,cov_col] = step_1(x, star, prime, cov_row, cov_col)
     return star
 
-n = 20
-ORIGINAL_MATRIX = np.random.randint(0,high=10,size=(n,n))
-result = assignment(ORIGINAL_MATRIX)
+if __name__ == "__main__":
+    k = 75
+    print(assignment(np.random.randint(0,10,size=(k,k))))
