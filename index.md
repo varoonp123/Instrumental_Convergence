@@ -1,7 +1,8 @@
 ---
 layout: home
+title: Welcome to Instrumental Convergence!
 ---
-# Welcome to Instrumental Convergence!
+
 
 This is the personal website of Varoon Pazhyanur. Here, you will (eventually) find some of my musings on math, reviews of books that I find important, and any other thoughts that I care to develop. I will graduate in Spring 2019 with an M.S./B.S. in Mathematics from [Emory University](https://math.emory.edu/home/). My thesis focusses on the realizability and inscribability of 4-polytopes and is advised by [David Borthwick](https://www.mathcs.emory.edu/~davidb/). You can find my CV [here](/assets/cv.pdf).
 
