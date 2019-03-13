@@ -105,5 +105,8 @@ def assignment(m):
     return star
 
 if __name__ == "__main__":
-    k = 75
-    print(assignment(np.random.randint(0,10,size=(k,k))))
+    k = 200
+
+    r = np.random.randint(0,20,size=(k,k))
+    np.savetxt('assignment_large.txt', r, fmt = '%d')
+    np.savetxt('assignment_large_solution.txt', assignment(r), fmt = '%d')

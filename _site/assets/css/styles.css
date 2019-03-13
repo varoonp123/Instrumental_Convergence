@@ -24,6 +24,7 @@ button {
   cursor: pointer; }
 
 button:hover {
+  text-align: center;
   background: #1E62D0;
   background-image: -webkit-linear-gradient(top, #1E62D0, #3D94F6);
   background-image: -moz-linear-gradient(top, #1E62D0, #3D94F6);
@@ -50,12 +51,12 @@ figure {
   display: table; }
 
 img, figcaption {
-  display: table;
   font-size: smaller;
   font-style: italic;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto; }
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto; }
 
 figcaption {
   padding: 5px;
@@ -65,16 +66,23 @@ figcaption {
 .three_adjacent_pics {
   float: left; }
 
-.mhacks_pics::after {
-  margin: auto;
-  content: "";
-  clear: both;
-  display: table; }
-
-.index_trio_layout::after {
-  content: "";
-  clear: both;
-  margin-left: 0px;
-  margin-right: 0px;
+.mhacks_pics {
   display: flex;
-  justify-content: space-between; }
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center; }
+
+.index_trio_layout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center; }
+
+.convexhull_pics {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center; }
