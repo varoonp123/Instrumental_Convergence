@@ -47,4 +47,3 @@ Moreover, if Gordon wants to "adjust" these measures to include nonmarket factor
 
 ## References
 
-{% bibliography %}
