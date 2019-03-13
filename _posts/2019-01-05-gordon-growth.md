@@ -46,5 +46,3 @@ I found some aspects of the book to be unnecessarily quantitative. An concept su
 Moreover, if Gordon wants to "adjust" these measures to include nonmarket factors, then he has to give th
 
 ## References
-
-{% bibliography %}
